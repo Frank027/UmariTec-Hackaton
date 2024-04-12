@@ -1,25 +1,34 @@
-export  default class Carretera {
+import Vehiculo from "./Vehiculo.js";
 
+export default class Carretera {
     constructor(sentido, numeroVehiculos) {
-        this.sentido = sentido
-        this.numeroVehiculos = numeroVehiculos
+        this.sentido = sentido;
+        this.numeroVehiculos = numeroVehiculos;
+        this.autos = [];
     }
 
-    actualizarNumeroVehiculos(numeroVehiculos) {
+    generarVehiculos(velocidadMaxima, canvasWidth, canvasHeight) {
+        for (let i = 0; i < this.numeroVehiculos; i++) {
+            const velocidad = Math.random() * velocidadMaxima + 1;
+            const direccion = this.sentido === 'solo sentido' ? 'derecha' : 'aleatorio';
+            const auto = new Vehiculo(velocidad, direccion);
+            auto.ancho = 50;
+            auto.alto = 30;
+            auto.y = canvasHeight / 2 - auto.alto / 2;
+            auto.x = direccion === 'derecha' ? -auto.ancho : canvasWidth + auto.ancho;
+            this.autos.push(auto);
+        }
     }
 
-    contarVehiuclos() {
-
+    dibujarVehiculos(ctx) {
+        this.autos.forEach(auto => {
+            auto.dibujar(ctx);
+        });
     }
 
-    dibujarCarretera() {
-        let body = document.querySelector("body")
-        const carretera = document.createElement("div");
-        carretera.className = 'carretera'
-        body.appendChild(carretera);
-        let line = document.createElement("br");
-        line.className = 'line';
-        carretera.appendChild(line);
-        return body
+    moverVehiculos(canvasWidth) {
+        this.autos.forEach(auto => {
+            auto.mover(canvasWidth);
+        });
     }
 }
