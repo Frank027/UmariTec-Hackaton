@@ -13,7 +13,7 @@ function dibujar() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     carretera.dibujarVehiculos(ctx);
     semaforo.dibujarSemaforo(ctx, canvas.width / 2, canvas.height / 2, 20);
-    carretera.moverVehiculos(canvas.width);
+    carretera.moverVehiculos(canvas.width, semaforo.semaforoRojo);
     requestAnimationFrame(dibujar);
 }
 

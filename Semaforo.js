@@ -12,6 +12,9 @@ export default class Semaforo {
         }, this.semaforoRojo ? this.tiempoRojo : this.tiempoVerde);
     }
 
+    estadoSemaforo() {
+        return this.semaforoRojo;
+    }
     dibujarSemaforo(ctx, posX, posY, radio) {
         ctx.fillStyle = this.semaforoRojo ? 'red' : 'green';
         ctx.beginPath();
