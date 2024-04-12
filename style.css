@@ -1,0 +1,13 @@
+.carretera {
+    width: 95%;
+    height: 150px;
+    background-color: black;
+    margin-left: 2%;
+    margin-top: 20%;
+}
+
+.line {
+    background-color: yellow;
+    width: 100%;
+    height: 20px;
+}
