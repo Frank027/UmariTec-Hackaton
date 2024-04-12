@@ -8,8 +8,6 @@ export default class Semaforo {
       // Método de la clase
     }
 
-
-
 }
   
 //  Para crear una instancia de la clase
